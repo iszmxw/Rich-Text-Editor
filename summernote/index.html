@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>summernote</title>
+    <!-- include jquery -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    <!-- include libraries BS3 -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+
+    <!-- include google-code-prettify -->
+    <link rel="stylesheet" href="css/prettify.css"/>
+    <link rel="stylesheet" href="css/summernote.css">
+
+    <!-- include summernote -->
+    <script type="text/javascript" src="js/prettify.js"></script>
+    <script type="text/javascript" src="js/summernote.js"></script>
+    <script type="text/javascript" src="js/summernote-zh-CN.js"></script>
+    <script type="text/javascript" src="js/summernote-ext-highlight.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.summernote').summernote({
+                height: 200,
+                tabsize: 2,
+                prettifyHtml: true,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['highlight', ['highlight']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ],
+                lang: 'zh-CN'
+            });
+
+            $('.preview-btn').click(function () {
+                $('#preview-box').html($('.summernote').summernote('code'));
+                $('.summernote').code('');
+                prettyPrint();
+            });
+        });
+
+    </script>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <p>1 检查插入代码按钮</p>
+    <p>2 输入代码片段到编辑器</p>
+    <p>3 检查预览按钮</p>
+<textarea class="summernote">
+
+</textarea>
+    <hr>
+    <button class="btn btn-success preview-btn">preview</button>
+    <hr>
+    <div id="preview-box">
+
+    </div>
+</div>
+</body>
+</html>
